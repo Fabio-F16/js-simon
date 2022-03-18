@@ -35,14 +35,6 @@ function promptDiRisposta(user, otherArrayNumeri) {
         user.push(ask);
     } while (user.length < 5)
     console.log(user);
-
-
-    // if (user === otherArrayNumeri) {
-    //     console.log('hai vinto');
-
-    // } else {
-    //     console.log('hai perso');
-    // }
 }
 // funzione risposta
 
@@ -51,23 +43,18 @@ function promptDiRisposta(user, otherArrayNumeri) {
 function confrontoArray(user, otherArrayNumeri) {
 
     let i;
-    let userNumero;
-    let cpuNumero;
 
     for (let i = 0; i < 5; i++) {
         user = [];
         otherArrayNumeri = [];
 
-        userNumero = user[i];
-        cpuNumero = otherArrayNumeri[i];
     }
-
-    if (userNumero.includes(cpuNumero)) {
-        console.log('hai vinto');
-
+    if (user[i] === otherArrayNumeri[i]) {
+        console.log('hai vinto')
     } else {
-        console.log('hai perso');
+        console.log('hai perso')
     }
+
 }
 
 
@@ -91,7 +78,6 @@ let arrayUser = [];
 
 startGame.addEventListener("click", () => {
 
-
     arrayNumeriCpu = numeriDaRicordare(arrayNumeriCpu);
 
     setTimeout(blackScreen, 4500);
@@ -101,11 +87,11 @@ startGame.addEventListener("click", () => {
         promptDiRisposta(arrayUser, arrayNumeriCpu);
 
     }, 5000)
-
-    const confronto = confrontoArray(arrayUser, arrayNumeriCpu);
+    let confronto = confrontoArray(arrayUser, arrayNumeriCpu);
     console.log(confronto);
 
 })
+
 
 
 
