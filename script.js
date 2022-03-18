@@ -24,30 +24,61 @@ function numeriDaRicordare(arrayNumeri) {
 // numeri da ricordare
 
 // funzione risposta
-function promptDiRisposta(arrayNumeri, otherArrayNumeri) {
-    arrayNumeri = [];
+function promptDiRisposta(user, otherArrayNumeri) {
+
+    user = [];
     otherArrayNumeri = [];
     let ask;
 
-    for (let i = 0; i < 5; i++) {
+    do {
         ask = parseInt(prompt('inserisci i numeri'));
-        arrayNumeri.push(ask);
-        console.log(arrayNumeri);
-        if (arrayNumeri[i] === otherArrayNumeri[i]) {
-            console.log('hai vinto');
-        } else {
-            console.log('hai perso')
-        }
-    }
+        user.push(ask);
+    } while (user.length < 5)
+    console.log(user);
 
+
+    // if (user === otherArrayNumeri) {
+    //     console.log('hai vinto');
+
+    // } else {
+    //     console.log('hai perso');
+    // }
 }
 // funzione risposta
 
 
+// confronto array
+function confrontoArray(user, otherArrayNumeri) {
 
+    let i;
+    let userNumero;
+    let cpuNumero;
+
+    for (let i = 0; i < 5; i++) {
+        user = [];
+        otherArrayNumeri = [];
+
+        userNumero = user[i];
+        cpuNumero = otherArrayNumeri[i];
+    }
+
+    if (userNumero.includes(cpuNumero)) {
+        console.log('hai vinto');
+
+    } else {
+        console.log('hai perso');
+    }
+}
+
+
+// confronto array
+
+
+// nascondere i numeri
 function blackScreen() {
     numeroUno.classList.add('black-screen');
 }
+// nascondere i numeri
 // fine funzioni ----------------------------------------------------------------
 
 
@@ -55,15 +86,25 @@ let numeroUno = document.querySelector('.numeroUno');
 
 const startGame = document.querySelector('.startGame');
 
+let arrayNumeriCpu = [];
+let arrayUser = [];
+
 startGame.addEventListener("click", () => {
-    const arrayNumeriCpu = [];
-    const arrayUser = [];
 
-    numeriDaRicordare(arrayNumeriCpu);
 
-    setTimeout(blackScreen, 4500)
+    arrayNumeriCpu = numeriDaRicordare(arrayNumeriCpu);
 
-    setTimeout(promptDiRisposta, 5000);
+    setTimeout(blackScreen, 4500);
+
+    setTimeout(function () {
+
+        promptDiRisposta(arrayUser, arrayNumeriCpu);
+
+    }, 5000)
+
+    const confronto = confrontoArray(arrayUser, arrayNumeriCpu);
+    console.log(confronto);
+
 })
 
 
