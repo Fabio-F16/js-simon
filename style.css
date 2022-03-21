@@ -1,4 +1,28 @@
-.black-screen{
-    background-color: black;
-}
-
+.hidden {
+    display: none !important;
+  }
+  .flex {
+    display: flex;
+  }
+  
+  .boxedNumbers {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .box {
+    padding: 5px;
+    border: 1px solid black;
+    flex: 1;
+  }
+  
+  .green {
+    background-color: green;
+    color: white;
+  }
+  
+  .red {
+    background-color: red;
+    color: white;
+  }
+  
